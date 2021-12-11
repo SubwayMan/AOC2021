@@ -6,7 +6,7 @@ class graph():
         self.graph = edges
 
     def bfs(self, startpoint, elem):
-        q = []
+        q = [startpoint]
         searched = {startpoint}
         depth = 1
         while q:
@@ -20,6 +20,7 @@ class graph():
                     nq.append(n)
                     searched.add(n)
             q = nq
+            depth += 1
         return (-1, False)
 
 

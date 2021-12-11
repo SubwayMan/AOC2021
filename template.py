@@ -1,6 +1,7 @@
 from typing import List
 import re
 from collections import defaultdict as dd, Counter as coun, deque
+import graphing
 
 def ias(filename:str = "input.txt") -> str:
     """returns the content of the input file as a string"""
@@ -16,5 +17,4 @@ def iai(filename:str = "input.txt") -> List[int]:
     lines = ial(filename)
     line_as_int = lambda l: int(l.rstrip('\n'))
     return list(map(line_as_int, lines))
-
 

@@ -1,21 +1,4 @@
-from typing import List
-import re
-from collections import defaultdict as dd, Counter as coun, deque
-
-def ias(filename:str = "input.txt") -> str:
-    """returns the content of the input file as a string"""
-    with open(filename) as f:
-        return f.read().rstrip("\n")
-
-def ial(filename:str = "input.txt") -> List[str]:
-    """Return a list where each line in the input file is an element of the list"""
-    return ias(filename).split("\n")
-
-def iai(filename:str = "input.txt") -> List[int]:
-    """Return a list where each line in the input file is an element of the list, converted into an integer"""
-    lines = ial(filename)
-    line_as_int = lambda l: int(l.rstrip('\n'))
-    return list(map(line_as_int, lines))
+from template import *
 
 p = ial("input.txt")
 
@@ -31,9 +14,7 @@ def adjac(r, c):
     if c > 0:
         adj.append((r, c-1))
     
-    y = int(p[r][c])
     k = []
-    ret = []
     for r2, c2 in adj:
         if p[r2][c2] != "9":
             k.append((r2, c2))
@@ -49,19 +30,15 @@ def bfs(r, c):
         return 0
     ans = 0
     while q:
-        t = q.popleft()
-        r3 = t[0]
-        c3 = t[1]
+        r3, c3 = q.popleft()
         adjh = adjac(r3, c3)
         for i, j in adjh:
             if seen[i][j] == -1:
                 q.append((i, j))
                 seen[i][j] = 1
                 ans += 1
+
     return ans
-
-
-
 
 f = []
 for r in range(len(p)):
