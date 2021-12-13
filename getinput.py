@@ -11,7 +11,6 @@ url = "https://adventofcode.com/{0}/day/{1}/input".format(year, day)
 
 headers = CaseInsensitiveDict()
 headers["cookie"] = os.environ.get("session")
-print(os.environ.get("session"))
 
 data = requests.get(url, headers=headers)
 print(data.text)
