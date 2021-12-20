@@ -1,7 +1,12 @@
 from typing import List
 import re
 from collections import defaultdict as dd, Counter as coun, deque
+from itertools import permutations as perms, combinations as combs, product as prod, combinations_with_replacement as comb_re
 import graphing
+import pyperclip as pp
+import heapq
+import math
+import random
 
 def ias(filename:str = "input.txt") -> str:
     """returns the content of the input file as a string"""
